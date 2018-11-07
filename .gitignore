@@ -21,4 +21,5 @@ pids
 *.pid.lock
 /dist
 
-./.DS_Store
+# IOS DS_Store
+.DS_Store
