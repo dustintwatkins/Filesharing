@@ -1,1 +1,0 @@
-{"version":3,"file":"Serializer.js","sourceRoot":"","sources":["../../src/ClientCommunicator/Serializer.ts"],"names":[],"mappings":"AAAA;IAAA;IAQA,CAAC;IAPQ,oBAAS,GAAhB,UAAiB,GAAW;QAC1B,OAAO,IAAI,CAAC,SAAS,CAAC,GAAG,CAAC,CAAA;IAC5B,CAAC;IAEM,sBAAW,GAAlB,UAAmB,GAAW;QAC5B,OAAO,IAAI,CAAC,KAAK,CAAC,GAAG,CAAC,CAAA;IACxB,CAAC;IACH,iBAAC;AAAD,CAAC,AARD,IAQC;AAED,eAAe,UAAU,CAAA"}

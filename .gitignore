@@ -3,7 +3,7 @@ Server/node_modules
 Client/node_modules
 
 # Webstorm
-.idea
+.idea/
 Client/.idea
 Server/.idea
 
@@ -20,6 +20,8 @@ pids
 *.seed
 *.pid.lock
 /dist
+Client/dist
+Server/dist
 
 # IOS DS_Store
 .DS_Store
