@@ -3,7 +3,7 @@ Server/node_modules
 Client/node_modules
 
 # Webstorm
-.idea/
+/.idea
 Client/.idea
 Server/.idea
 
@@ -23,7 +23,7 @@ pids
 Client/dist
 Server/dist
 
-# IOS DS_Store
+# IOS Files
 .DS_Store
 Client/.DS_Store
 Server/.DS_Store
