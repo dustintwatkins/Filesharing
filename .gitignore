@@ -3,7 +3,7 @@ Server/node_modules
 Client/node_modules
 
 # Webstorm
-./.idea
+.idea
 Client/.idea
 Server/.idea
 
