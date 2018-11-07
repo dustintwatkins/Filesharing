@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="af0bdc2e-ff7a-4907-b7f6-a9d4dd84b195" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/TypeScript-React-Template.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Components/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/Components/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Components/Header/Header.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Components/Header/Header.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Server/package-lock.json" afterDir="false" />
-    </list>
+    <list default="true" id="af0bdc2e-ff7a-4907-b7f6-a9d4dd84b195" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -1746,6 +1735,9 @@
       </list>
     </option>
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="af0bdc2e-ff7a-4907-b7f6-a9d4dd84b195" name="Default" comment="" />
@@ -1753,12 +1745,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1541560421435</updated>
-      <workItem from="1541560423783" duration="338000" />
+      <workItem from="1541560423783" duration="600000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="338000" />
+    <option name="totallyTimeSpent" value="600000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -1785,6 +1777,9 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Client/public/index.html">
