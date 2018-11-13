@@ -7,5 +7,5 @@ docker run \
        -e user_id=$(id -u $USER) \
        -e user=$USER \
        -it \
-       filesharing:0.1.1 \
+       filesharing:0.2.1 \
        /bin/sh -c "/entrypoint.sh"
