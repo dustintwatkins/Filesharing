@@ -27,3 +27,6 @@ Server/dist
 .DS_Store
 Client/.DS_Store
 Server/.DS_Store
+./*/.DS_Store
+
+.env
