@@ -1,5 +1,6 @@
-import * as express from 'express'
+import * as bodyParser from 'body-parser'
 import * as cors from 'cors'
+import * as express from 'express'
 
 class ServerCommunicator {
   port = process.env.PORT || 8082
@@ -12,12 +13,19 @@ class ServerCommunicator {
   }
 
   middleware(): void {
+    this.app.use(bodyParser.json())
     this.app.use(cors())
   }
 
   routes(): void {
     this.app.get('/', (req: express.Request, res: express.Response) => {
       res.send('Hello from server :)')
+    })
+
+    this.app.post('/upload', (req: express.Request, res: express.Response) => {
+      console.log('POST /upload')
+      console.dir(req.headers)
+      res.send('received!')
     })
   }
 
