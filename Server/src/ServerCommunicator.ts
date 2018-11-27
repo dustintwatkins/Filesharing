@@ -10,11 +10,10 @@ class ServerCommunicator {
     this.middleware()
     this.routes()
     this.listen()
-    this.app.use(bodyParser.json({ limit: '1000mb' }))
   }
 
   middleware(): void {
-    this.app.use(bodyParser.json())
+    this.app.use(bodyParser.json({limit:'1000mb'}))
     this.app.use(cors())
   }
 

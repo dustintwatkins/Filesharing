@@ -10,7 +10,12 @@ class ClientCommunicator {
     let request = {
       body: JSON.stringify(requestInfo.params),
       method: 'post',
-      headers: { 'Content-Type': 'application/json' }
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'POST',
+        'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
+      },
     }
     return fetch(url, request)
       .then(async (response) => {

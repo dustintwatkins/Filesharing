@@ -13,13 +13,13 @@ class Uploader extends React.Component {
   }
 
   createRandomId () {
-    let text = ''
+    let id: string = ''
     let possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
 
-    for (let i = 0; i < 50; i++)
-      text += possible.charAt(Math.floor(Math.random() * possible.length))
+    for (let i: number = 0; i < 50; i++)
+      id += possible.charAt(Math.floor(Math.random() * possible.length))
 
-    return text
+    return id
   }
 
   handleSelectedFile = (event) => {
