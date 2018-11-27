@@ -1,0 +1,71 @@
+.select-upload {
+    text-align: center;
+}
+
+.drag-upload {
+    text-align: center;
+    height: 400px;
+    background-color: navy;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 2%;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px grey;
+
+}
+
+.drag-upload.highlight {
+    border-color: yellow;
+}
+
+.drag-upload h3 {
+    color: white;
+}
+
+.drag-descriptor {
+
+}
+
+#gallery {
+    margin-top: 10px;
+}
+
+#gallery img {
+    width: 150px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.select-file-btn {
+    display: inline-block;
+    padding: 10px;
+    background: dodgerblue;
+    cursor: pointer;
+    border-radius: 5px;
+    color: white;
+    box-shadow: 1px 1px 1px black;
+}
+
+.select-file-btn:hover {
+    background: #ddd;
+}
+
+.upload-form {
+    padding: 75px;
+}
+
+.buttons-container {
+    padding: 20px;
+}
+
+.upload-btn {
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px black;
+    margin-top: 20px;
+}
+
+.upload-btn:hover {
+    background: #ddd;
+}

@@ -1,0 +1,22 @@
+.search-bar button:hover {
+    background: #ccc;
+}
+
+.search-bar {
+    position: relative;
+
+}
+
+.search-input {
+    border-style: none;
+    width: 250px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.search-button {
+    border-radius: 10px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+}

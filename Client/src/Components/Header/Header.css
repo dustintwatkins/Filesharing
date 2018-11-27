@@ -6,7 +6,7 @@
     width: 100%;
 }
 
-.header a {
+.header a, canvas, Searchbar {
     float: left;
     color: white;
     text-align: center;
@@ -34,6 +34,7 @@
 
 .header-right {
     float: right;
+    margin-right: 5%;
 }
 
 @media screen and (max-width: 500px) {
