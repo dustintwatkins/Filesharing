@@ -23,14 +23,14 @@ class ServerCommunicator {
       res.send('Hello from server :)')
     })
 
-    this.app.get('/getFile', (req: express.Request, res: express.Response) => {
-      console.log('GET /getFile')
-
+    this.app.post('/searchFile', (req: express.Request, res: express.Response) => {
+      console.log('POST /getFile')
+      console.log('Searching for file named:', req.body.query)
+      res.send(true)
     })
 
     this.app.post('/upload', (req: express.Request, res: express.Response) => {
       console.log('POST /upload')
-
       res.send(true)
     })
   }

@@ -4,7 +4,6 @@ import ClientCommunicator from '../../ClientCommunicator/ClientCommunicator'
 import './Uploader.css'
 import {FaFileUpload} from 'react-icons/fa'
 import swal from 'sweetalert'
-import {instanceOf} from 'prop-types'
 
 class Uploader extends React.Component {
 
@@ -39,16 +38,13 @@ class Uploader extends React.Component {
   handleUpload = (event) => {
     event.preventDefault()
     if (this.state.addedFiles.length > 0) {
-      console.log('attempting to upload the following files')
       let fr = new FileReader()
       fr.onload = function () {
         let data = fr.result;
         let array = new Int8Array(data);
-        console.log('fr onload...', array)
         ClientCommunicator.post(RequestObjectFactory.buildRequestObject(array, '/upload'))
       };
       fr.readAsArrayBuffer(this.state.addedFiles[0])
-
     } else {
       swal(`Opps! Looks like you haven't uploaded any files yet!`)
     }
@@ -56,10 +52,8 @@ class Uploader extends React.Component {
 
   removeDragData(e) {
     if (e.dataTransfer.items) {
-      // Use DataTransferItemList interface to remove the drag data
       e.dataTransfer.items.clear();
     } else {
-      // Use DataTransfer interface to remove the drag data
       e.dataTransfer.clearData();
     }
   }
@@ -71,9 +65,7 @@ class Uploader extends React.Component {
   private handleDrop (e) {
     e.preventDefault()
     if (e.dataTransfer.items) {
-      // Use DataTransferItemList interface to access the file(s)
       for (let i: number = 0; i < e.dataTransfer.items.length; i++) {
-        // If dropped items aren't files, reject them
         if (e.dataTransfer.items[i].kind === 'file') {
           let file: File = e.dataTransfer.items[i].getAsFile();
           // console.log('... file[' + i + '].name = ' + file.name);
@@ -83,7 +75,6 @@ class Uploader extends React.Component {
         }
       }
     } else {
-      // Use DataTransfer interface to access the file(s)
       for (let i = 0; i < e.dataTransfer.files.length; i++) {
         // console.log('... file[' + i + '].name = ' + e.dataTransfer.files[i].name);
         let files = this.state.addedFiles
@@ -91,9 +82,8 @@ class Uploader extends React.Component {
         this.setState({addedFiles: files})
       }
     }
-
     console.dir(this.state.addedFiles)
-    // Pass event to removeDragData for cleanup
+
     this.removeDragData(e)
   }
 
@@ -106,8 +96,7 @@ class Uploader extends React.Component {
         <br/>
         <div className={'drag-upload'} id={'drop-area'}
              onDragOver={(e) => {this.handleDragOver(e)}}
-             onDrop={(e) => {this.handleDrop(e)}}
-        >
+             onDrop={(e) => {this.handleDrop(e)}}>
           <form className={'upload-form'}>
             <h3>Drag and drop a file to upload</h3>
               <FaFileUpload size={84} color={'white'}/>

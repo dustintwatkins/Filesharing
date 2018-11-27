@@ -5,7 +5,7 @@
 .drag-upload {
     text-align: center;
     height: 400px;
-    background-color: navy;
+    background-color: dodgerblue;
     margin-left: 10%;
     margin-right: 10%;
     margin-top: 2%;
@@ -40,11 +40,11 @@
 .select-file-btn {
     display: inline-block;
     padding: 10px;
-    background: dodgerblue;
+    background: mediumslateblue;
     cursor: pointer;
     border-radius: 5px;
     color: white;
-    box-shadow: 1px 1px 1px black;
+    box-shadow: 1px 1px 1px darkslateblue;
 }
 
 .select-file-btn:hover {
