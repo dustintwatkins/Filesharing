@@ -31,6 +31,7 @@ class ServerCommunicator {
 
     this.app.post('/upload', (req: express.Request, res: express.Response) => {
       console.log('POST /upload')
+      console.log(req.body)
       res.send(true)
     })
   }
