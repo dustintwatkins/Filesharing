@@ -4,6 +4,7 @@ import ClientCommunicator from '../../ClientCommunicator/ClientCommunicator'
 import './Uploader.css'
 import {FaFileUpload} from 'react-icons/fa'
 import swal from 'sweetalert'
+import {instanceOf} from 'prop-types'
 
 class Uploader extends React.Component {
 
@@ -39,17 +40,18 @@ class Uploader extends React.Component {
     event.preventDefault()
     if (this.state.addedFiles.length > 0) {
       console.log('attempting to upload the following files')
-      console.dir(this.state.addedFiles)
+      let fr = new FileReader()
+      fr.onload = function () {
+        let data = fr.result;
+        let array = new Int8Array(data);
+        console.log('fr onload...', array)
+        ClientCommunicator.post(RequestObjectFactory.buildRequestObject(array, '/upload'))
+      };
+      fr.readAsArrayBuffer(this.state.addedFiles[0])
+
     } else {
       swal(`Opps! Looks like you haven't uploaded any files yet!`)
     }
-
-    // let data = {
-    //   file: 'path to file ! :)',
-    //   fileName: this.state.selectedFile.name
-    // }
-
-    // ClientCommunicator.post(RequestObjectFactory.buildRequestObject(data, '/upload'))
   }
 
   removeDragData(e) {

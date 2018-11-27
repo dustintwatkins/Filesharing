@@ -10,6 +10,7 @@ class ServerCommunicator {
     this.middleware()
     this.routes()
     this.listen()
+    this.app.use(bodyParser.json({ limit: '1000mb' }))
   }
 
   middleware(): void {
@@ -22,10 +23,15 @@ class ServerCommunicator {
       res.send('Hello from server :)')
     })
 
+    this.app.get('/getFile', (req: express.Request, res: express.Response) => {
+      console.log('GET /getFile')
+
+    })
+
     this.app.post('/upload', (req: express.Request, res: express.Response) => {
       console.log('POST /upload')
-      console.dir(req.headers)
-      res.send('received!')
+
+      res.send(true)
     })
   }
 
