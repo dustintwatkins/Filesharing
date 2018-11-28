@@ -4,13 +4,19 @@ import ClientCommunicator from '../../ClientCommunicator/ClientCommunicator'
 import './Uploader.css'
 import {FaFileUpload} from 'react-icons/fa'
 import swal from 'sweetalert'
+import generateUsername from  '../../UserInfo/generateUserName'
 
 class Uploader extends React.Component {
 
   state = {
     loaded: 0,
     addedFiles: [],
-    userID: this.createRandomId()
+    userID: this.createRandomId(),
+    username: this.generateUserName()
+  }
+
+  generateUserName () {
+    return generateUsername()
   }
 
   createRandomId () {
@@ -42,6 +48,7 @@ class Uploader extends React.Component {
       let file_name: string = this.state.addedFiles[0].name
       let id: string = this.createRandomId()
       let userId: string = this.state.userID
+      let userName: string = this.state.username
       let fr = new FileReader()
       fr.onload = function () {
         let array = new Int8Array(fr.result)
@@ -50,7 +57,7 @@ class Uploader extends React.Component {
           file_name: file_name,
           file:array,
           id: id,
-          username: 'joel_stoker',
+          username: userName,
           user_id: userId
         }
 
