@@ -14,7 +14,7 @@ class ClientCommunicator {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'POST',
-        'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
+        'Access-Control-Allow-Headers': 'Origin, Uploader-Type, X-Auth-Token'
       },
     }
     return fetch(url, request)

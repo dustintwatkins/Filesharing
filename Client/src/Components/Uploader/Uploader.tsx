@@ -9,7 +9,8 @@ class Uploader extends React.Component {
 
   state = {
     loaded: 0,
-    addedFiles: []
+    addedFiles: [],
+    userID: this.createRandomId()
   }
 
   createRandomId () {
@@ -38,11 +39,22 @@ class Uploader extends React.Component {
   handleUpload = (event) => {
     event.preventDefault()
     if (this.state.addedFiles.length > 0) {
+      let file_name: string = this.state.addedFiles[0].name
+      let id: string = this.createRandomId()
+      let userId: string = this.state.userID
       let fr = new FileReader()
       fr.onload = function () {
-        let data = fr.result;
-        let array = new Int8Array(data);
-        ClientCommunicator.post(RequestObjectFactory.buildRequestObject(array, '/upload'))
+        let array = new Int8Array(fr.result)
+
+        let params: object = {
+          file_name: file_name,
+          file:array,
+          id: id,
+          username: 'joel_stoker',
+          user_id: userId
+        }
+
+        ClientCommunicator.post(RequestObjectFactory.buildRequestObject(params, '/upload'))
       };
       fr.readAsArrayBuffer(this.state.addedFiles[0])
     } else {
@@ -91,7 +103,7 @@ class Uploader extends React.Component {
     return (
       <div className='App'>
         <div className={'icon'}>
-          <canvas width='80' height='80' data-jdenticon-value={this.createRandomId()}/>
+          <canvas width='80' height='80' data-jdenticon-value={this.state.userID}/>
         </div>
         <br/>
         <div className={'drag-upload'} id={'drop-area'}
