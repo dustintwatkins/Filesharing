@@ -1,6 +1,9 @@
 import * as bodyParser from 'body-parser'
 import * as cors from 'cors'
 import * as express from 'express'
+import {createFilter} from 'react-search-input'
+
+let entries: any = []
 
 class ServerCommunicator {
   port = process.env.PORT || 8082
@@ -30,10 +33,8 @@ class ServerCommunicator {
 
     this.app.post('/upload', (req: express.Request, res: express.Response) => {
       console.log('POST /upload')
-      console.log(req.body.username)
-      console.log(req.body.user_id)
-      console.log(req.body.file_name)
-      console.log(req.body.id)
+        console.log(req.body)
+        entries.push(req.body)
       res.send(true)
     })
   }
