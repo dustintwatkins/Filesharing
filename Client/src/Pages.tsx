@@ -1,6 +1,7 @@
 import * as React from 'react'
 import Uploader from './Components/Uploader/Uploader'
 import SearchResults from './Components/SearchResults/SearchResults'
+import LandingPage from './Components/LandingPage/LandingPage'
 
 interface Page {
   [s: string]: JSX.Element
@@ -8,7 +9,8 @@ interface Page {
 
 const pages: Page = {
   '': <Uploader/>,
-  '#search-results': <SearchResults/>
+  '#search-results': <SearchResults/>,
+  '#home': <LandingPage/>,
 }
 
 export default pages

@@ -62,7 +62,7 @@ class SearchResults extends React.Component {
                 <div className={'grid-item'}>
                   {/*<canvas className={'jdenticon'} data-jdenticon-value={x['user_id']}/>*/}
                 </div>
-                <div className={'grid-item-download'}>
+                <div className={'grid-item-download'} onClick={(e) => {this.downloadFile(e, x)}}>
                   <button className={'download-btn'} onClick={(e) => {this.downloadFile(e, x)}}>Download</button>
                 </div>
               </li>
