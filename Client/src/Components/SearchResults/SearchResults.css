@@ -71,3 +71,9 @@ h3 {
     background-color: dodgerblue;
     border-color: dodgerblue;
 }
+
+.jdenticon {
+    height: 50%;
+    width: 50%;
+    z-index: 2;
+}

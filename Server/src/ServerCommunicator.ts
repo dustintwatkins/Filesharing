@@ -53,9 +53,25 @@ class ServerCommunicator {
     this.app.use(cors())
   }
 
+  findFile (userId: string, id: string, file_name: string): any {
+    for (let i: number = 0; i < entries.length; i++) {
+      if (entries[i]['id'] === String(id) &&
+          entries[i]['user_id'] === userId &&
+          entries[i]['file_name'] === file_name) {
+        return entries[i]['file']
+      }
+    }
+    return null
+  }
+
   routes(): void {
     this.app.get('/', (req: express.Request, res: express.Response) => {
       res.send('Hello from server :)')
+    })
+
+    this.app.post('/downloadFile', (req: express.Request, res: express.Response) => {
+      console.log('POST /downloadFile')
+      res.json(this.findFile(req.body['user_id'], req.body['id'], req.body['file_name']))
     })
 
       const search_keys = ['id', 'username', 'user_id', 'file_name']
@@ -82,7 +98,7 @@ class ServerCommunicator {
 
     this.app.post('/upload', (req: express.Request, res: express.Response) => {
       console.log('POST /upload')
-        entries.push(req.body)
+      entries.push(req.body)
       res.send(true)
     })
   }

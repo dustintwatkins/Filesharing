@@ -3,7 +3,7 @@ import RequestObjectFactory from '../../ClientCommunicator/RequestObjectFactory'
 import ClientCommunicator from '../../ClientCommunicator/ClientCommunicator'
 import './Uploader.css'
 import {FaFileUpload} from 'react-icons/fa'
-import swal from 'sweetalert'
+import Swal from 'sweetalert2'
 import generateUsername from  '../../UserInfo/generateUserName'
 import Header from '../Header/Header'
 
@@ -51,7 +51,7 @@ class Uploader extends React.Component {
       let userName: string = this.state.username
       let fr = new FileReader()
       fr.onload = function () {
-        let array = new Int8Array(fr.result)
+        let array = new Uint8Array(fr.result)
 
         let params: object = {
           file_name: file_name,
@@ -62,10 +62,16 @@ class Uploader extends React.Component {
         }
 
         ClientCommunicator.post(RequestObjectFactory.buildRequestObject(params, '/upload'))
+        Swal({
+          title: 'Upload successful!',
+          text: 'Search using the filename or username to download the file',
+          type: 'success',
+          backdrop: 'rgba(0,0,123,0.4)'
+        })
       };
       fr.readAsArrayBuffer(this.state.addedFiles[0])
     } else {
-      swal(`Opps! Looks like you haven't uploaded any files yet!`)
+      Swal(`Opps! Looks like you haven't uploaded any files yet!`)
     }
   }
 
@@ -107,9 +113,9 @@ class Uploader extends React.Component {
       <div>
         <Header/>
         <div className='App'>
-          {/*<div className={'icon'}>*/}
-            {/*<canvas width='80' height='80' data-jdenticon-value={this.state.userID}/>*/}
-          {/*</div>*/}
+          <div className={'icon'}>
+            <canvas width='80' height='80' data-jdenticon-value={this.state.userID}/>
+          </div>
           <br/>
           <div className={'drag-upload'} id={'drop-area'}
                onDragOver={(e) => {this.handleDragOver(e)}}
