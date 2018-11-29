@@ -7,7 +7,8 @@ import RequestObjectFactory from '../../ClientCommunicator/RequestObjectFactory'
 
 class Searchbar extends React.Component {
 
-  async search () {
+    async search () {
+        event.preventDefault()
     if ((document.getElementById('search-text') as HTMLInputElement).value === null ||
         (document.getElementById('search-text') as HTMLInputElement).value === undefined) {
       swal(`Please enter a file name to search for.`)

@@ -77,8 +77,7 @@ class ServerCommunicator {
                       return best_matches.indexOf(x) >= 0
                   })
               })
-        console.log(search_results)
-      res.send(search_results)
+        res.json(search_results)
     })
 
     this.app.post('/upload', (req: express.Request, res: express.Response) => {
