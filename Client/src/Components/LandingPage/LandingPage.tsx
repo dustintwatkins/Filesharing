@@ -1,6 +1,15 @@
 import * as React from 'react'
 import './LandingPage.css'
 class LandingPage extends React.Component {
+
+  directToUpload () {
+    location.hash = ''
+  }
+
+  directToSearch () {
+    location.hash = '#search-results'
+  }
+
   render() {
     return (
       <div className={'home'}>
@@ -12,7 +21,7 @@ class LandingPage extends React.Component {
         </div>
         <div className={'buttons'}>
           <div className={'btn'}>
-            <button id={'upload'}>Upload</button>
+            <button id={'upload'} onClick={this.directToUpload.bind(this)}>Upload</button>
           </div>
           <div className={'btn'}>
             <button id={'download'}>Download</button>
