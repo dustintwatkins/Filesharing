@@ -5,6 +5,7 @@ import './Uploader.css'
 import {FaFileUpload} from 'react-icons/fa'
 import swal from 'sweetalert'
 import generateUsername from  '../../UserInfo/generateUserName'
+import Header from '../Header/Header'
 
 class Uploader extends React.Component {
 
@@ -39,7 +40,6 @@ class Uploader extends React.Component {
       addedFiles: files,
       loaded: 0,
     })
-    console.dir(this.state.addedFiles)
   }
 
   handleUpload = (event) => {
@@ -87,7 +87,6 @@ class Uploader extends React.Component {
       for (let i: number = 0; i < e.dataTransfer.items.length; i++) {
         if (e.dataTransfer.items[i].kind === 'file') {
           let file: File = e.dataTransfer.items[i].getAsFile();
-          // console.log('... file[' + i + '].name = ' + file.name);
           let files = this.state.addedFiles
           files.push((file))
           this.setState({addedFiles: files})
@@ -95,37 +94,37 @@ class Uploader extends React.Component {
       }
     } else {
       for (let i = 0; i < e.dataTransfer.files.length; i++) {
-        // console.log('... file[' + i + '].name = ' + e.dataTransfer.files[i].name);
         let files = this.state.addedFiles
         files.push(e.dataTransfer.files[i])
         this.setState({addedFiles: files})
       }
     }
-    console.dir(this.state.addedFiles)
-
     this.removeDragData(e)
   }
 
   render() {
     return (
-      <div className='App'>
-        <div className={'icon'}>
-          <canvas width='80' height='80' data-jdenticon-value={this.state.userID}/>
-        </div>
-        <br/>
-        <div className={'drag-upload'} id={'drop-area'}
-             onDragOver={(e) => {this.handleDragOver(e)}}
-             onDrop={(e) => {this.handleDrop(e)}}>
-          <form className={'upload-form'}>
-            <h3>Drag and drop a file to upload</h3>
-              <FaFileUpload size={84} color={'white'}/>
-              <br/>
-              <div className={'buttons-container'}>
-                <input type='file' id='chooseFile' className={'select-file-btn'} onChange={this.handleSelectedFile}/>
+      <div>
+        <Header/>
+        <div className='App'>
+          {/*<div className={'icon'}>*/}
+            {/*<canvas width='80' height='80' data-jdenticon-value={this.state.userID}/>*/}
+          {/*</div>*/}
+          <br/>
+          <div className={'drag-upload'} id={'drop-area'}
+               onDragOver={(e) => {this.handleDragOver(e)}}
+               onDrop={(e) => {this.handleDrop(e)}}>
+            <form className={'upload-form'}>
+              <h3>Drag and drop a file to upload</h3>
+                <FaFileUpload size={84} color={'white'}/>
                 <br/>
-                <button className={'upload-btn'} onClick={this.handleUpload}>Upload</button>
-              </div>
-          </form>
+                <div className={'buttons-container'}>
+                  <input type='file' id='chooseFile' className={'select-file-btn'} onChange={this.handleSelectedFile}/>
+                  <br/>
+                  <button className={'upload-btn'} onClick={this.handleUpload}>Upload</button>
+                </div>
+            </form>
+          </div>
         </div>
       </div>
     )

@@ -1,0 +1,73 @@
+.top-grid {
+    display: grid;
+    grid-template-columns: auto auto;
+    margin-right: 5%;
+    margin-top: 2%;
+    margin-left: 10%;
+}
+
+.top-grid button {
+    background-color: dodgerblue;
+    color: white;
+    border-radius: 10px;
+    margin-top: 1%;
+    padding: 10px;
+}
+
+.btn-grid {
+    text-align: right;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding: 10px;
+    margin-right: 7%;
+    margin-left: 10%;
+    border-bottom: black;
+    border-bottom: 1px solid black;
+}
+
+.grid-item {
+    font-size: 15px;
+    text-align: left;
+}
+
+
+
+.li-grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    margin-right: 5%;
+    margin-left: 5%;
+    background-color: #D3D3D3;
+    padding: 15px;
+    border-radius: 10px;
+    list-style-type: none;
+    margin-top: 1%;
+    box-shadow: 1px 1px 1px grey;
+}
+
+.li-grid-container:hover {
+    background-color: mediumslateblue;
+    color: white;
+}
+
+h3 {
+    margin-top: 1%;
+}
+
+.grid-item-download {
+    font-size: 15px;
+    text-align: right;
+}
+
+.download-btn {
+    border-radius: 10px;
+}
+
+.download-btn:hover {
+    color:white;
+    background-color: dodgerblue;
+    border-color: dodgerblue;
+}

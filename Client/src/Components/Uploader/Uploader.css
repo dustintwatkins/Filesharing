@@ -45,6 +45,7 @@
     border-radius: 5px;
     color: white;
     box-shadow: 1px 1px 1px darkslateblue;
+    width: 55%;
 }
 
 .select-file-btn:hover {
