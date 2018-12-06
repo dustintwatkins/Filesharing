@@ -53,6 +53,10 @@
     width: 55%;
 }
 
+.select-file-btn button {
+
+}
+
 .select-file-btn:hover {
     background: #ddd;
 }

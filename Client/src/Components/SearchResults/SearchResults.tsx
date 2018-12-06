@@ -3,6 +3,7 @@ import Model from '../../Model'
 import './SearchResults.css'
 import ClientCommunicator from '../../ClientCommunicator/ClientCommunicator'
 import RequestObjectFactory from '../../ClientCommunicator/RequestObjectFactory'
+import Searchbar from '../Searchbar/Searchbar'
 
 class SearchResults extends React.Component {
 
@@ -33,6 +34,9 @@ class SearchResults extends React.Component {
     let files = Model.get_instance().getFiles()
     return (
       <div>
+        <div className={'search'}>
+          <Searchbar/>
+        </div>
         <div className={'top-grid'}>
           <h3>Search results</h3>
           <div className={'btn-grid'}>
@@ -47,6 +51,7 @@ class SearchResults extends React.Component {
         </div>
         <ul>
           {files.map((x) => {
+            console.dir(x)
             return (
               <li className={'li-grid-container'}>
                 <div className={'grid-item'}>
