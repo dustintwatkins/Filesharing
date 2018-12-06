@@ -9,7 +9,7 @@ interface Page {
 
 const pages: Page = {
   '': <Uploader/>,
-  '#search-results': <SearchResults/>,
+  '#search': <SearchResults/>,
   '#home': <LandingPage/>,
 }
 

@@ -19,7 +19,7 @@ class Searchbar extends React.Component {
         }
         let results = await ClientCommunicator.post(RequestObjectFactory.buildRequestObject(params, '/searchFile'))
         Model.get_instance().addResults(results)
-        location.hash = '#search-results'
+        location.hash = '#search'
       }
   }
 

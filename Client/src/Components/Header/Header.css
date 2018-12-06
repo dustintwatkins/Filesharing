@@ -1,15 +1,15 @@
 .header {
     overflow: hidden;
-    background-color: mediumslateblue;
+    background-color: white;
     padding: 20px 10px;
-    box-shadow: 1px 1px 1px grey;
+    /*box-shadow: 1px 1px 1px grey;*/
     width: 100%;
     margin: 0 !important;
 }
 
 .header a, canvas, Searchbar {
     float: left;
-    color: white;
+    color: #2b7a78;
     text-align: center;
     padding: 12px;
     text-decoration: none;
@@ -24,13 +24,16 @@
 }
 
 .header a:hover {
-    background-color: #ddd;
-    color: black;
+    background-color: #2b7a78;
+    color: white;
+    height: 100%;
+    border-radius: 10px;
 }
 
-.header a.active {
-    background-color: navy;
+.header a:focus {
+    background-color: #2b7a78;
     color: white;
+    border-radius: 10px;
 }
 
 .header-right {

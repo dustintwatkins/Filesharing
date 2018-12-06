@@ -1,5 +1,4 @@
 import * as React from 'react'
-import Header from '../Header/Header'
 import Model from '../../Model'
 import './SearchResults.css'
 import ClientCommunicator from '../../ClientCommunicator/ClientCommunicator'
@@ -8,11 +7,11 @@ import RequestObjectFactory from '../../ClientCommunicator/RequestObjectFactory'
 class SearchResults extends React.Component {
 
   uploadFiles () {
+    event.preventDefault()
     location.hash = ''
   }
 
   async downloadFile (e, fileInfo: object) {
-    e.preventDefault()
     let params: object = {
       user_id: fileInfo['user_id'],
       id: fileInfo['id'],
@@ -20,7 +19,6 @@ class SearchResults extends React.Component {
     }
     ClientCommunicator.post(RequestObjectFactory.buildRequestObject(params, '/downloadFile'))
       .then( (file) => {
-          console.dir(file)
           let a = window.document.createElement('a')
           a.href = window.URL.createObjectURL(new Blob([file], { type: 'application/octet-stream' }))
           a.download = fileInfo['file_name']
@@ -32,10 +30,9 @@ class SearchResults extends React.Component {
   }
 
   render()  {
-    const results = Model.get_instance().getResults()
+    let files = Model.get_instance().getFiles()
     return (
       <div>
-        <Header/>
         <div className={'top-grid'}>
           <h3>Search results</h3>
           <div className={'btn-grid'}>
@@ -49,8 +46,7 @@ class SearchResults extends React.Component {
           <div className="grid-item-download">Download</div>
         </div>
         <ul>
-          {results.map((x) => {
-            console.dir(x['user_id'])
+          {files.map((x) => {
             return (
               <li className={'li-grid-container'}>
                 <div className={'grid-item'}>
@@ -62,8 +58,11 @@ class SearchResults extends React.Component {
                 <div className={'grid-item'}>
                   {/*<canvas className={'jdenticon'} data-jdenticon-value={x['user_id']}/>*/}
                 </div>
-                <div className={'grid-item-download'} onClick={(e) => {this.downloadFile(e, x)}}>
-                  <button className={'download-btn'} onClick={(e) => {this.downloadFile(e, x)}}>Download</button>
+                <div className={'grid-item-download'} onClick={(e) => {
+                  e.preventDefault()
+                  this.downloadFile(e, x)}}>
+                  <button className={'download-btn'} onClick={(e) => {e.preventDefault()
+                    this.downloadFile(e, x)}}>Download</button>
                 </div>
               </li>
             )

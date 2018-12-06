@@ -1,3 +1,8 @@
+.app {
+    background-color: white;
+    height: 575px;
+}
+
 .select-upload {
     text-align: center;
 }
@@ -5,7 +10,7 @@
 .drag-upload {
     text-align: center;
     height: 400px;
-    background-color: dodgerblue;
+    background-color: #3aa3a9;
     margin-left: 10%;
     margin-right: 10%;
     margin-top: 2%;
@@ -40,11 +45,11 @@
 .select-file-btn {
     display: inline-block;
     padding: 10px;
-    background: mediumslateblue;
+    background: #def2f1;
     cursor: pointer;
     border-radius: 5px;
-    color: white;
-    box-shadow: 1px 1px 1px darkslateblue;
+    color: #2b7a78;
+    box-shadow: 1px 1px 1px grey;
     width: 55%;
 }
 

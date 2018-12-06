@@ -69,9 +69,21 @@ class ServerCommunicator {
       res.send('Hello from server :)')
     })
 
+    this.app.post('/getFiles', (req: express.Request, res: express.Response) => {
+      let results: any[] = []
+      entries.map((entry: any) => {
+        results.push({
+          file_name: entry['file_name'],
+          user_id: entry['user_id'],
+          id: entry['id']
+        })
+      })
+      res.json(results)
+    })
+
     this.app.post('/downloadFile', (req: express.Request, res: express.Response) => {
       console.log('POST /downloadFile')
-      res.json(this.findFile(req.body['user_id'], req.body['id'], req.body['file_name']))
+      res.send(this.findFile(req.body['user_id'], req.body['id'], req.body['file_name']))
     })
 
       const search_keys = ['id', 'username', 'user_id', 'file_name']
@@ -98,7 +110,12 @@ class ServerCommunicator {
 
     this.app.post('/upload', (req: express.Request, res: express.Response) => {
       console.log('POST /upload')
+      req.body.file = Object.keys(req.body.file).map((key) => {
+        return req.body.file[key]
+      })
       entries.push(req.body)
+      console.log(`received length:`)
+      console.dir(Object.keys(req.body.file).length)
       res.send(true)
     })
   }
