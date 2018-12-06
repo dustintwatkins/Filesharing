@@ -39,9 +39,9 @@ class SearchResults extends React.Component {
         </div>
         <div className={'top-grid'}>
           <h3>Search results</h3>
-          <div className={'btn-grid'}>
-            <button onClick={this.uploadFiles.bind(this)}>Upload more files</button>
-          </div>
+          {/*<div className={'btn-grid'}>*/}
+            {/*<button onClick={this.uploadFiles.bind(this)}>Upload more files</button>*/}
+          {/*</div>*/}
         </div>
         <div className="grid-container">
           <div className="grid-item">File Name</div>
