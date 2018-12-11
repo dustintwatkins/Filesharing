@@ -8,9 +8,9 @@ interface Page {
 }
 
 const pages: Page = {
-  '': <Uploader/>,
+  '':  <LandingPage/>,
   '#search': <SearchResults/>,
-  '#home': <LandingPage/>,
+  '#upload': <Uploader/>,
 }
 
 export default pages

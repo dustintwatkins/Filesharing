@@ -4,7 +4,7 @@
     height: 100%;
     left: 0;
     top: 0;
-    background: mediumslateblue;
+    background: #2b7a78;
     z-index: 10;
     color: white;
 }
@@ -25,11 +25,11 @@
 }
 
 .buttons button {
-    background-color: dodgerblue;
+    background-color: #FFA500;
     color: white;
     width: 50%;
-    border-color: dodgerblue;
-    box-shadow: 1px 1px 1px dodgerblue;
+    border-color: #FFA500;
+    box-shadow: 1px 1px 1px #FFA500;
     border-radius: 10px;
     padding: 10px;
 }
