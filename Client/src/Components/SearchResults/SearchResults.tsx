@@ -42,6 +42,13 @@ class SearchResults extends React.Component {
     document.getElementById('downloadHeader').style.backgroundColor = '#2b7a78'
     document.getElementById('downloadHeader').style.color = 'white'
     let files: any[] = Model.get_instance().getFiles()
+
+      Model.get_instance().fetchAllFiles().then(results => {
+          if(results.length != this.state.files.length)
+              this.setState({files: results})
+      })
+      Model.get_instance().fetchAllFiles()
+
     console.log('rendering')
     return (
       <div>
@@ -52,7 +59,7 @@ class SearchResults extends React.Component {
         <div className="grid-container">
         </div>
         <ul>
-          {files.map((x) => {
+          {this.state.files.map((x) => {
             return (
               <li className={'li-grid-container'}onClick={(e) => {
                 e.preventDefault()
