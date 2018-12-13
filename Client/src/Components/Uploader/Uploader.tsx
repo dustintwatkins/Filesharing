@@ -115,9 +115,6 @@ class Uploader extends React.Component {
     return (
       <div>
         <div className='app'>
-          {/*<div className={'icon'}>*/}
-            {/*<canvas width='80' height='80' data-jdenticon-value={this.state.userID}/>*/}
-          {/*</div>*/}
           <br/>
           <div className={'drag-upload'} id={'drop-area'}
                onDragOver={(e) => {this.handleDragOver(e)}}
