@@ -68,7 +68,6 @@ class SearchResults extends React.Component {
             }})
         const best_matches = f_results.map((x) => {return x.original})
 
-    console.log('rendering')
     return (
       <div>
         <div className={'top-grid'}>
