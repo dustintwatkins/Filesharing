@@ -44,6 +44,12 @@
 
 .select-file-btn {
     display: inline-block;
+    width: 0;
+    visibility: hidden;
+}
+
+.file-selector {
+    display: inline-block;
     padding: 10px;
     background:#FFA500;
     cursor: pointer;
@@ -52,9 +58,8 @@
     box-shadow: 1px 1px 1px grey;
     width: 55%;
 }
-
-.file-selector button {
-    color: yellow;
+.file-selector:hover {
+    background: #ddd;
 }
 
 .select-file-btn:hover {
@@ -74,6 +79,7 @@
     border-radius: 5px;
     box-shadow: 1px 1px 1px grey;
     margin-top: 20px;
+    width: 55%;
 }
 
 .upload-btn:hover {

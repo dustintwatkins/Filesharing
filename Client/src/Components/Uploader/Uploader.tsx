@@ -5,7 +5,6 @@ import './Uploader.css'
 import {FaFileUpload} from 'react-icons/fa'
 import Swal from 'sweetalert2'
 import generateUsername from  '../../UserInfo/generateUserName'
-import Header from '../Header/Header'
 import Model from '../../Model'
 
 class Uploader extends React.Component {
@@ -41,6 +40,8 @@ class Uploader extends React.Component {
       addedFiles: files,
       loaded: 0,
     })
+
+    document.getElementById('uploadFile').innerHTML = `Upload - ${this.state.addedFiles[0].name}`
   }
 
   handleUpload = (event) => {
@@ -108,7 +109,13 @@ class Uploader extends React.Component {
         this.setState({addedFiles: files})
       }
     }
+    document.getElementById('uploadFile').innerHTML = `Upload - ${this.state.addedFiles[0].name}`
     this.removeDragData(e)
+  }
+
+  uploadFile() {
+    console.log('try to upload file! :):')
+    document.getElementById('chooseFile').click()
   }
 
   render() {
@@ -125,11 +132,12 @@ class Uploader extends React.Component {
                 <FaFileUpload size={84} color={'white'}/>
                 <br/>
                 <div className={'buttons-container'}>
-                  <div className={'file-selector'}>
+                  <div className={'file-selector'}  onClick={this.uploadFile}>
+                    Select File
                     <input type='file' id='chooseFile' className={'select-file-btn'} onChange={this.handleSelectedFile}/>
                   </div>
                     <br/>
-                    <button className={'upload-btn'} onClick={this.handleUpload}>Upload</button>
+                    <button className={'upload-btn'} id={'uploadFile'} onClick={this.handleUpload}>Upload</button>
                 </div>
             </form>
           </div>

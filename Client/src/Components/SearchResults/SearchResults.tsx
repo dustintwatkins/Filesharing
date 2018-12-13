@@ -13,8 +13,8 @@ class SearchResults extends React.Component {
     location.hash = ''
   }
 
-  public rerender() {
-    this.render()
+  state = {
+    files: []
   }
 
   async downloadFile (e, fileInfo: object) {
@@ -50,13 +50,13 @@ class SearchResults extends React.Component {
         <ul>
           {files.map((x) => {
             return (
-              <li className={'li-grid-container'}>
+              <li className={'li-grid-container'}onClick={(e) => {
+                e.preventDefault()
+                this.downloadFile(e, x)}}>
                 <div className={'grid-item'}>
                   {x['file_name']}
                 </div>
-                <div className={'grid-item-download'} onClick={(e) => {
-                  e.preventDefault()
-                  this.downloadFile(e, x)}}>
+                <div className={'grid-item-download'} >
                   <div className={'download-icon'}>
                     <FaFileDownload size={30} color={'white'}/>
                   </div>
