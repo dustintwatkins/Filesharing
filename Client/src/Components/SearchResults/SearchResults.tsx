@@ -29,7 +29,7 @@ class SearchResults extends React.Component {
     location.hash = ''
   }
 
-  async downloadFile (e, fileInfo: object) {
+    async downloadFile (e, fileInfo: object) {
     e.preventDefault()
     let params: object = {
       user_id: fileInfo['user_id'],
@@ -37,9 +37,17 @@ class SearchResults extends React.Component {
       file_name: fileInfo['file_name']
     }
     ClientCommunicator.post(RequestObjectFactory.buildRequestObject(params, '/downloadFile'))
-      .then( (file) => {
-          let a = window.document.createElement('a')
-          a.href = window.URL.createObjectURL(new Blob([file], { type: 'application/octet-stream' }))
+            .then( (file) => {
+                let a = window.document.createElement('a')
+                let fa = []
+                for(var x in file)
+                {
+                    fa.push(file[x])
+                }
+                const uf = Uint8Array.from(fa)
+                console.dir(uf.buffer)
+          //          const ua = Uint8Array.from(file)
+          a.href = window.URL.createObjectURL(new Blob([uf.buffer], { type: 'application/octet-stream' }))
           a.download = fileInfo['file_name']
           document.body.appendChild(a)
           a.click()
