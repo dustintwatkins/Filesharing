@@ -17,6 +17,10 @@
     text-align: center;
 }
 
+.title {
+    margin-top: 5%;
+}
+
 .slogan {
     text-align: center;
 }
@@ -35,6 +39,8 @@
     border-color: #FFA500;
     border-radius: 10px;
     padding: 10px;
+    font-size: 19px;
+    /*box-shadow: 1px 1px 1px grey;*/
 }
 
 .btn {
