@@ -8,13 +8,13 @@ import {FaFileDownload} from 'react-icons/fa'
 
 class SearchResults extends React.Component {
 
+    state = {
+        files: []
+    }
+
   uploadFiles () {
     event.preventDefault()
     location.hash = ''
-  }
-
-  state = {
-    files: []
   }
 
   async downloadFile (e, fileInfo: object) {
@@ -37,7 +37,12 @@ class SearchResults extends React.Component {
   }
 
   render()  {
-    let files: any[] = Model.get_instance().getFiles()
+      Model.get_instance().fetchAllFiles().then(results => {
+          if(results.length != this.state.files.length)
+              this.setState({files: results})
+      })
+      Model.get_instance().fetchAllFiles()
+      
     console.log('rendering')
     return (
       <div>
@@ -48,7 +53,7 @@ class SearchResults extends React.Component {
         <div className="grid-container">
         </div>
         <ul>
-          {files.map((x) => {
+          {this.state.files.map((x) => {
             return (
               <li className={'li-grid-container'}onClick={(e) => {
                 e.preventDefault()
