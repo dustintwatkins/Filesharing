@@ -119,6 +119,10 @@ class Uploader extends React.Component {
   }
 
   render() {
+    document.getElementById('uploadHeader').style.color = 'white'
+    document.getElementById('uploadHeader').style.backgroundColor = '#2b7a78'
+    document.getElementById('downloadHeader').style.backgroundColor = 'white'
+    document.getElementById('downloadHeader').style.color = '#2b7a78'
     return (
       <div>
         <div className='app'>

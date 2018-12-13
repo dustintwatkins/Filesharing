@@ -19,8 +19,8 @@ class Header extends React.Component {
       <div className='header'>
         <a href='' className='logo'>Filesharing</a>
         <div className='header-right'>
-          <a href={'#upload'} className={'upload'}>Upload</a>
-          <a href={'#search'} className={'download'}>Download</a>
+          <a href={'#upload'} className={'upload'} id={'uploadHeader'}>Upload</a>
+          <a href={'#search'} className={'download'} id={'downloadHeader'}>Download</a>
         </div>
       </div>
     )

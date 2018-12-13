@@ -8,13 +8,13 @@ import {FaFileDownload} from 'react-icons/fa'
 
 class SearchResults extends React.Component {
 
+  state = {
+    files: []
+  }
+
   uploadFiles () {
     event.preventDefault()
     location.hash = ''
-  }
-
-  state = {
-    files: []
   }
 
   async downloadFile (e, fileInfo: object) {
@@ -37,6 +37,10 @@ class SearchResults extends React.Component {
   }
 
   render()  {
+    document.getElementById('uploadHeader').style.color = '#2b7a78'
+    document.getElementById('uploadHeader').style.backgroundColor = 'white'
+    document.getElementById('downloadHeader').style.backgroundColor = '#2b7a78'
+    document.getElementById('downloadHeader').style.color = 'white'
     let files: any[] = Model.get_instance().getFiles()
     console.log('rendering')
     return (

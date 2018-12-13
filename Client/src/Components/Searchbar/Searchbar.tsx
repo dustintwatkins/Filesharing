@@ -21,8 +21,6 @@ class Searchbar extends React.Component {
         let results = await ClientCommunicator.post(RequestObjectFactory.buildRequestObject(params, '/searchFile'))
         console.dir(results)
         Model.get_instance().addResults(results)
-        let searchResults = new SearchResults(null)
-        searchResults.rerender()
       }
     }
 
