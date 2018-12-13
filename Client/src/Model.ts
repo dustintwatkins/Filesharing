@@ -25,6 +25,7 @@ class Model {
 
   public async fetchAllFiles (): Promise<any> {
     this.results = await ClientCommunicator.post(RequestObjectFactory.buildRequestObject({}, '/getFiles'))
+    return this.results
   }
 
   public getFiles (): any {

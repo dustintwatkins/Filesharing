@@ -5,6 +5,7 @@ import swal from 'sweetalert'
 import ClientCommunicator from '../../ClientCommunicator/ClientCommunicator'
 import RequestObjectFactory from '../../ClientCommunicator/RequestObjectFactory'
 import Model from '../../Model'
+import SearchResults from '../SearchResults/SearchResults'
 
 class Searchbar extends React.Component {
 
@@ -18,21 +19,23 @@ class Searchbar extends React.Component {
           query: (document.getElementById('search-text') as HTMLInputElement).value,
         }
         let results = await ClientCommunicator.post(RequestObjectFactory.buildRequestObject(params, '/searchFile'))
+        console.dir(results)
         Model.get_instance().addResults(results)
-        location.hash = '#search'
+        let searchResults = new SearchResults(null)
+        searchResults.rerender()
       }
-  }
+    }
 
-  render () {
-   return (
-    <div className={'search-bar'}>
-      <form className={'search-form'}>
-        <input className={'search-input'} type='text' id={'search-text'} placeholder='Search for a file to download...' name='search' />
-        <button type='submit' className={'search-button'} onClick={this.search.bind(this)}><FaSearch/></button>
-      </form>
-    </div>
-   )
- }
+    render () {
+     return (
+      <div className={'search-bar'}>
+        <form className={'search-form'}>
+          <input className={'search-input'} type='text' id={'search-text'} placeholder='Search for a file to download...' name='search' />
+          <button type='submit' className={'search-button'} onClick={this.search.bind(this)}><FaSearch/></button>
+        </form>
+      </div>
+     )
+    }
 }
 
 export default Searchbar

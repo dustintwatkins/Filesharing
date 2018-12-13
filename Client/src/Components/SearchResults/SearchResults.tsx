@@ -4,6 +4,7 @@ import './SearchResults.css'
 import ClientCommunicator from '../../ClientCommunicator/ClientCommunicator'
 import RequestObjectFactory from '../../ClientCommunicator/RequestObjectFactory'
 import Searchbar from '../Searchbar/Searchbar'
+import {FaFileDownload} from 'react-icons/fa'
 
 class SearchResults extends React.Component {
 
@@ -12,7 +13,12 @@ class SearchResults extends React.Component {
     location.hash = ''
   }
 
+  public rerender() {
+    this.render()
+  }
+
   async downloadFile (e, fileInfo: object) {
+    e.preventDefault()
     let params: object = {
       user_id: fileInfo['user_id'],
       id: fileInfo['id'],
@@ -31,43 +37,29 @@ class SearchResults extends React.Component {
   }
 
   render()  {
-    let files = Model.get_instance().getFiles()
+    let files: any[] = Model.get_instance().getFiles()
+    console.log('rendering')
     return (
       <div>
-        <div className={'search'}>
+        <div className={'top-grid'}>
+          <h3>Available Files</h3>
           <Searchbar/>
         </div>
-        <div className={'top-grid'}>
-          <h3>Search results</h3>
-          {/*<div className={'btn-grid'}>*/}
-            {/*<button onClick={this.uploadFiles.bind(this)}>Upload more files</button>*/}
-          {/*</div>*/}
-        </div>
         <div className="grid-container">
-          <div className="grid-item">File Name</div>
-          <div className="grid-item">Username</div>
-          <div className="grid-item">Icon</div>
-          <div className="grid-item-download">Download</div>
         </div>
         <ul>
           {files.map((x) => {
-            console.dir(x)
             return (
               <li className={'li-grid-container'}>
                 <div className={'grid-item'}>
                   {x['file_name']}
                 </div>
-                <div className={'grid-item'}>
-                  {x['username']}
-                </div>
-                <div className={'grid-item'}>
-                  {/*<canvas className={'jdenticon'} data-jdenticon-value={x['user_id']}/>*/}
-                </div>
                 <div className={'grid-item-download'} onClick={(e) => {
                   e.preventDefault()
                   this.downloadFile(e, x)}}>
-                  <button className={'download-btn'} onClick={(e) => {e.preventDefault()
-                    this.downloadFile(e, x)}}>Download</button>
+                  <div className={'download-icon'}>
+                    <FaFileDownload size={30} color={'white'}/>
+                  </div>
                 </div>
               </li>
             )

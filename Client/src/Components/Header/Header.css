@@ -30,7 +30,7 @@
     border-radius: 10px;
 }
 
-.header a:focus {
+.header a:active {
     background-color: #2b7a78;
     color: white;
     border-radius: 10px;
@@ -39,6 +39,7 @@
 .header-right {
     float: right;
     margin-right: 5%;
+    flex-direction: row;
 }
 
 @media screen and (max-width: 500px) {

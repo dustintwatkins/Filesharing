@@ -3,6 +3,7 @@ import './Header.css'
 import Searchbar from '../Searchbar/Searchbar'
 
 class Header extends React.Component {
+
   createRandomId () {
     let text = ''
     let possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
@@ -18,7 +19,7 @@ class Header extends React.Component {
       <div className='header'>
         <a href='' className='logo'>Filesharing</a>
         <div className='header-right'>
-          <a href={''} className={'upload'}>Upload</a>
+          <a href={'#upload'} className={'upload'}>Upload</a>
           <a href={'#search'} className={'download'}>Download</a>
         </div>
       </div>

@@ -66,7 +66,7 @@ class Uploader extends React.Component {
           title: 'Upload successful!',
           text: 'Search using the filename or username to download the file',
           type: 'success',
-          backdrop: 'rgba(0,0,123,0.4)'
+          backdrop: ''
         })
         Model.get_instance().fetchAllFiles()
       };
