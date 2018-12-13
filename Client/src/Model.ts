@@ -3,7 +3,15 @@ import RequestObjectFactory from './ClientCommunicator/RequestObjectFactory'
 
 
 class Model {
-  private static _instance: Model
+    private static _instance: Model
+
+    public sr_setState (s): any {
+        console.log('searchResults not rendered yet')
+    }
+
+    public sr_getState (): any {
+        console.log('searchResults not rendered yet')
+    }
 
   public static get_instance (): Model {
     if (!this._instance) {

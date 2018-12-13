@@ -7,7 +7,11 @@ import RequestObjectFactory from '../../ClientCommunicator/RequestObjectFactory'
 import Model from '../../Model'
 import SearchResults from '../SearchResults/SearchResults'
 
-class Searchbar extends React.Component {
+class Searchbar extends React.Component<{filterText: any}, any> {
+
+    constructor(props){
+        super(props)
+    }
 
     async search () {
       event.preventDefault()
@@ -24,11 +28,16 @@ class Searchbar extends React.Component {
       }
     }
 
+    search_text_change = (event) => {
+        console.dir(this.props)
+        this.props.filterText((document.getElementById('search-text') as HTMLInputElement).value)
+    }
+
     render () {
      return (
       <div className={'search-bar'}>
         <form className={'search-form'}>
-          <input className={'search-input'} type='text' id={'search-text'} placeholder='Search for a file to download...' name='search' />
+          <input className={'search-input'} type='text' id={'search-text'} placeholder='Search for a file to download...' name='search' onKeyUp={this.search_text_change}/>
           <button type='submit' className={'search-button'} onClick={this.search.bind(this)}><FaSearch/></button>
         </form>
       </div>

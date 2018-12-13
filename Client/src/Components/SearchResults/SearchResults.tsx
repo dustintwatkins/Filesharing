@@ -5,12 +5,24 @@ import ClientCommunicator from '../../ClientCommunicator/ClientCommunicator'
 import RequestObjectFactory from '../../ClientCommunicator/RequestObjectFactory'
 import Searchbar from '../Searchbar/Searchbar'
 import {FaFileDownload} from 'react-icons/fa'
+import * as fuzzy from 'fuzzy'
+
+const search_by_keys = ['username', 'file_name']
 
 class SearchResults extends React.Component {
 
-  state = {
-    files: []
-  }
+    constructor(props) {
+        super(props)
+    }
+
+    u_filter_text = (text) => {
+        this.setState({filter_text: text})
+    }
+
+    state = {
+        files: [],
+        filter_text: "",
+    }
 
   uploadFiles () {
     event.preventDefault()
@@ -41,25 +53,32 @@ class SearchResults extends React.Component {
     document.getElementById('uploadHeader').style.backgroundColor = 'white'
     document.getElementById('downloadHeader').style.backgroundColor = '#2b7a78'
     document.getElementById('downloadHeader').style.color = 'white'
-    let files: any[] = Model.get_instance().getFiles()
 
       Model.get_instance().fetchAllFiles().then(results => {
           if(results.length != this.state.files.length)
               this.setState({files: results})
       })
-      Model.get_instance().fetchAllFiles()
+        Model.get_instance().fetchAllFiles()
+
+        const f_results = fuzzy.filter(
+            this.state.filter_text,
+            this.state.files,
+            {extract: (x) => {
+                return x.file_name
+            }})
+        const best_matches = f_results.map((x) => {return x.original})
 
     console.log('rendering')
     return (
       <div>
         <div className={'top-grid'}>
           <h3>Available Files</h3>
-          <Searchbar/>
+          <Searchbar filterText={this.u_filter_text}/>
         </div>
         <div className="grid-container">
         </div>
         <ul>
-          {this.state.files.map((x) => {
+          {best_matches.map((x) => {
             return (
               <li className={'li-grid-container'}onClick={(e) => {
                 e.preventDefault()
